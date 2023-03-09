@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const password = process.env.PW;
 const dbUrl = `mongodb+srv://guspielmichal:${password}@cluster0.xtcvhy9.mongodb.net/?retryWrites=true&w=majority`;
 
+
 connect();
 
 app.listen(8080, () => {
