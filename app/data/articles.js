@@ -38,8 +38,8 @@ async function updateArticle(article) {
 }
 
 async function deleteArticle(id) {
-  const article = await Article.findById(id).exec();
-  return article;
+  const result = await Article.deleteOne({"_id": id});
+  return result;
 }
 
 module.exports = {
