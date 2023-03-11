@@ -19,7 +19,11 @@ const article = new mongoose.Schema({
     },
     created_at: {
       type: Date,
-      default: Date.now,
+      default: null,
+    },
+    edited_at: {
+      type: Date,
+      default: null,
     },
   });
 
