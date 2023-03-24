@@ -21,8 +21,7 @@ async function getComments(id) {
     const result = await Comment.updateOne(
       { _id: comment.id },
       {
-        body: comment.body,
-        edited_at: new Date()
+        likes: comment.likes,
       }
     );
     return result;
@@ -32,11 +31,17 @@ async function getComments(id) {
     const result = await Comment.deleteOne({"_id": id});
     return result;
   }
+
+  async function findCommentById(id){
+    const result = await Comment.findOne({"_id": id});
+    return result;
+  }
   
   module.exports = {
     getComments: getComments,
     addComment: addComment,
     updateComment: updateComment,
     deleteComment: deleteComment,
+    findCommentById : findCommentById
   };
   

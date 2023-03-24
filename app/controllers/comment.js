@@ -40,16 +40,24 @@ exports.updateComment = async (req, res) => {
   try {
     console.log("updateComment called");
     const id = req.params.id;
-    const { body } = req.body;
+    const result = await comment.findCommentById(id);
+    console.log(result);
+    if (!result) {
+      res.status(404).json({ error: "Comment not found." });
+      return;
+    }    
+    console.log("Likes: ", result.likes)
+    const updatedLikes = result.likes + 1;
+    console.log("Updated likes: ",updatedLikes)
     const updatedComment = {
       id,
-      body,
+      likes: updatedLikes
     };
-    const result = await comment.updateComment(updatedComment);
+    const updateResult = await comment.updateComment(updatedComment);
     if (!result) {
       res.status(404).json({ error: "Comment not found." });
     } else {
-      res.status(200).json(result);
+      res.status(200).json(updateResult);
     }
   } catch (error) {
     console.error(error);
