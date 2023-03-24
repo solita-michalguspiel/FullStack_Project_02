@@ -11,6 +11,7 @@ app.use(
   
 app.use(bodyParser.json());
 require("./routes/articles.js")(app);
+require("./routes/comment.js")(app)
 
 
 module.exports = app
