@@ -21,8 +21,11 @@ const comment = new mongoose.Schema({
       type: Date,
       default: null,
     },
+    likes: {
+      type: Number,
+      default: 0
+    }
   });
 
-  // Create the article model
 const Comment = mongoose.model('Comment', comment);
 module.exports = Comment;
