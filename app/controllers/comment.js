@@ -1,10 +1,10 @@
 const comment = require("../data/comment.js");
 
-exports.getComment = async (req, res) => {
+exports.getComments = async (req, res) => {
   try {
     console.log("getComment called");
     const id = req.params.id;
-    let data = await comment.getComment(id);
+    let data = await comment.getComments(id);
     console.log(data);
     res.status(200).json(data);
   } catch (error) {

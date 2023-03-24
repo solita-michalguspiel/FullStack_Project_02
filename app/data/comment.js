@@ -1,6 +1,6 @@
 const Comment = require("../model/comment.js");
 
-async function getComment(id) {
+async function getComments(id) {
     const articles = await Comment.find({articleId: id});
     console.log(articles);
     return articles;
@@ -34,7 +34,7 @@ async function getComment(id) {
   }
   
   module.exports = {
-    getComment: getComment,
+    getComments: getComments,
     addComment: addComment,
     updateComment: updateComment,
     deleteComment: deleteComment,
